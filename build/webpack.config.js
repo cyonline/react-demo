@@ -1,6 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
     mode: 'development',
     entry: './src/index.js',
@@ -114,6 +115,7 @@ module.exports = {
     resolve: {                                    //resolve核心配置
         extensions: ['.js', '.jsx', '.json'],
         alias: {
+            '@': path.join(__dirname, '../src'),
             pages: path.join(__dirname, '../src/pages'),
             components: path.join(__dirname, '../src/components'),
             actions: path.join(__dirname, '../src/redux/actions'),
