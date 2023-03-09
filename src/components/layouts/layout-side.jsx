@@ -18,64 +18,57 @@ function LayoutSide() {
     };
     return (
         <>
-            {/* <Layout style={{ height: '100%' }}> */}
-                {/* <Header className="header">
-                    <div className="logo" />
-                    <span style={{ color: '#fff' }}>布局1</span>
-                    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={headerMenuList} />
-                </Header> */}
-                <Layout >
-                    <Sider width={200} className="site-layout-background"
-                        trigger={null} collapsible collapsed={collapsed}>
-                        <Button
-                            type="primary"
-                            onClick={toggleCollapsed}
-                            style={{
-                                marginBottom: 16,
-                            }}
-                        >
-                            {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-                        </Button>
-                        <Menu
-                            mode="inline"
-                        >
-                            {siderMenuList.map((i) => {
-                                return (
-                                    <Menu.Item key={i.key} icon={i.icon}><Link to={i.path}>{i.label}</Link></Menu.Item>
-                                )
-                            })}
-                        </Menu>
-                    </Sider>
-                    <Layout
+            <Layout >
+                <Sider width={200} className="site-layout-background"
+                    trigger={null} collapsible collapsed={collapsed}>
+                    <Button
+                        type="primary"
+                        onClick={toggleCollapsed}
                         style={{
-                            padding: '0 24px 24px',
+                            marginBottom: 16,
                         }}
                     >
-                        <Breadcrumb
-                            style={{
-                                margin: '16px 0',
-                            }}
-                        >
-                            <Breadcrumb.Item>Home</Breadcrumb.Item>
-                            <Breadcrumb.Item>List</Breadcrumb.Item>
-                            <Breadcrumb.Item>App</Breadcrumb.Item>
-                        </Breadcrumb>
-                        <Content
-                            className="site-layout-background"
-                            style={{
-                                padding: 24,
-                                margin: 0,
-                                minHeight: 280,
-                            }}
-                        >
-                            <Routes>
-                                <Route path="/" element={<ComponentOne />} />
-                                <Route path="/two" element={<ComponentTwo />} />
-                            </Routes>
-                        </Content>
-                    </Layout>
+                        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+                    </Button>
+                    <Menu
+                        mode="inline"
+                    >
+                        {siderMenuList.map((i) => {
+                            return (
+                                <Menu.Item key={i.key} icon={i.icon}><Link to={i.path}>{i.label}</Link></Menu.Item>
+                            )
+                        })}
+                    </Menu>
+                </Sider>
+                <Layout
+                    style={{
+                        padding: '0 24px 24px',
+                    }}
+                >
+                    <Breadcrumb
+                        style={{
+                            margin: '16px 0',
+                        }}
+                    >
+                        <Breadcrumb.Item>Home</Breadcrumb.Item>
+                        <Breadcrumb.Item>List</Breadcrumb.Item>
+                        <Breadcrumb.Item>App</Breadcrumb.Item>
+                    </Breadcrumb>
+                    <Content
+                        className="site-layout-background"
+                        style={{
+                            padding: 24,
+                            margin: 0,
+                            minHeight: 280,
+                        }}
+                    >
+                        <Routes path="/page">
+                            <Route path="/one" element={<ComponentOne />} />
+                            <Route path="/two" element={<ComponentTwo />} />
+                        </Routes>
+                    </Content>
                 </Layout>
-            {/* </Layout> */}
+            </Layout>
         </>
     )
 }
