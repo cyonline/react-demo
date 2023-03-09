@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { LaptopOutlined, NotificationOutlined, UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, Button, Space } from 'antd';
 
-import { BrowserRouter as Router, Routes, HashRouter, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import ComponentOne from '@/pages/ComponentOne';
 import ComponentTwo from '@/pages/ComponentTwo';
 // import pageRouter from './router/routers.js'
-import headerMenuList from '@/components/menus/headerMenu'
 import siderMenuList from '@/components/menus/siderMenu'
 const { Header, Content, Sider } = Layout;
 

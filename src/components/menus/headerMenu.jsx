@@ -3,17 +3,17 @@ import React from 'react';
 
 let menuList = [
     {
-        path: '/',
+        path: '/home',
         name: 'nav1',
         key: 1,
-        label: '导航1',
+        label: '首页',
         // icon: <LaptopOutlined></LaptopOutlined>
     },
     {
-        path: '/two',
+        path: '/page',
         name: 'nav2',
         key: 2,
-        label: '导航2',
+        label: '功能页',
         // icon: <NotificationOutlined></NotificationOutlined>
     },
 ]
