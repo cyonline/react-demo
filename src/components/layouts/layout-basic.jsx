@@ -4,8 +4,8 @@ const { Header, Content } = Layout;
 import headerMenuList from '@/components/menus/headerMenu'
 import { Routes, Route, Link,NavLink } from 'react-router-dom';
 import LayoutSide from '@/components/layouts/layout-side'
-import ComponentOne from '@/pages/ComponentOne';
-import ComponentTwo from '@/pages/ComponentTwo';
+import Home from '@/pages/home';
+
 function LayoutBasic() {
     return (
         <Layout style={{ height: '100%' }}>
@@ -20,7 +20,7 @@ function LayoutBasic() {
             </Header>
             <Layout>
                 <Routes>
-                    <Route path="/" exact element={<Content />} />
+                    <Route path="/" exact element={<Home />} />
                     <Route path="/page/*" element={<LayoutSide />}>
                         {/* <Route path="/page/one" element={<ComponentOne />} />
                         <Route path="/page/two" element={<ComponentTwo />} /> */}
