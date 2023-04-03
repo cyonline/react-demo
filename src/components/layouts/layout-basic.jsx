@@ -1,31 +1,64 @@
 import React, { useState } from 'react';
-import { Layout, Menu } from 'antd';
-const { Header, Content } = Layout;
-import headerMenuList from '@/components/menus/headerMenu'
-import { Routes, Route, Link,NavLink } from 'react-router-dom';
-import LayoutSide from '@/components/layouts/layout-side'
-import Home from '@/pages/home';
+import { LaptopOutlined, NotificationOutlined, UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
+import { Breadcrumb, Layout, Menu, Button } from 'antd';
+const { Header, Content, Sider } = Layout;
+import siderMenuList from '@/components/menus/siderMenu'
+
+import { Routes, Route, Link, Outlet } from 'react-router-dom';
 
 function LayoutBasic() {
+    const [collapsed, setCollapsed] = useState(false);
+
+    const toggleCollapsed = () => {
+        setCollapsed(!collapsed);
+    };
     return (
         <Layout style={{ height: '100%' }}>
             <Header className="header">
                 <div className="logo" />
-                <span style={{ color: '#fff' }}>布局1</span>
+                <span style={{ color: '#fff' }}>系统名</span>
                 <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['0']} >
-                    {
-                        headerMenuList.map((i,index)=> <Menu.Item key={index}><Link to={i.path}>{i.label}</Link></Menu.Item>)
-                    }
+                    
                 </Menu>
             </Header>
-            <Layout>
-                <Routes>
-                    <Route path="/" exact element={<Home />} />
-                    <Route path="/page/*" element={<LayoutSide />}>
-                        {/* <Route path="/page/one" element={<ComponentOne />} />
-                        <Route path="/page/two" element={<ComponentTwo />} /> */}
-                    </Route>
-                </Routes>
+            <Layout >
+                <Sider width={200} className="site-layout-background"
+                    trigger={null} collapsible collapsed={collapsed}>
+                    <Button
+                        type="primary"
+                        onClick={toggleCollapsed}
+                        style={{
+                            marginBottom: 16,
+                        }}
+                    >
+                        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+                    </Button>
+                    <Menu
+                        mode="inline"
+                    >
+                        {siderMenuList.map((i) => {
+                            return (
+                                <Menu.Item key={i.key} icon={i.icon}><Link to={i.path}>{i.label}</Link></Menu.Item>
+                            )
+                        })}
+                    </Menu>
+                </Sider>
+                <Layout
+                    style={{
+                        padding: '0 24px 24px',
+                    }}
+                >
+                    <Breadcrumb
+                        style={{
+                            margin: '16px 0',
+                        }}
+                    >
+                        <Breadcrumb.Item>Home</Breadcrumb.Item>
+                        <Breadcrumb.Item>List</Breadcrumb.Item>
+                        <Breadcrumb.Item>App</Breadcrumb.Item>
+                    </Breadcrumb>
+                    <Outlet></Outlet>
+                </Layout>
             </Layout>
         </Layout>
     )

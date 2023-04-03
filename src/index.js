@@ -14,7 +14,7 @@ HashRouter使用 hash 模式
 ReactDom.createRoot(
     document.getElementById('root')
 ).render(
-    <HashRouter>
+    // <HashRouter>
         <App />
-    </HashRouter>
+    // </HashRouter>
 )

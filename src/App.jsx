@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import './App.less'
 
 import 'antd/dist/antd.min.css'; // or 'antd/dist/antd.less'
-
-import LayoutBasic from './components/layouts/layout-basic'
-
-
+import { BrowserRouter, HashRouter, Routes } from 'react-router-dom';
+import routerConfig from './router/router'
+import { renderRoutes } from './utils/renderRouters'
 function App() {
-    
     return (
         <div className="App">
-            <LayoutBasic></LayoutBasic>
-            {/* <LayoutSide /> */}
+            <HashRouter>
+                <Routes>
+                    {
+                        renderRoutes(routerConfig)
+                    }              
+                </Routes>
+            </HashRouter>
         </div>
     )
 }

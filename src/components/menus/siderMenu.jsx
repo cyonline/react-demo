@@ -3,14 +3,21 @@ import React from 'react';
 
 let menuList = [
     {
-        path: '/page/one',
+        path: '/home',
+        name: 'home',
+        key: 0,
+        label: '首页',
+        icon: <UserOutlined></UserOutlined>
+    },
+    {
+        path: '/one',
         name: 'page1',
         key: 1,
         label: '菜单1',
         icon: <LaptopOutlined></LaptopOutlined>
     },
     {
-        path: '/page/two',
+        path: '/two',
         name: 'page2',
         key: 2,
         label: '菜单2',
